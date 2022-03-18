@@ -1,0 +1,18 @@
+version = 0.1
+
+extensions = ['chomp@0.1:swc', 'chomp@0.1:rollup']
+
+default-task = 'build'
+
+[[task]]
+name = 'build'
+deps = ['build:ts']
+
+[[task]]
+name = 'build:ts'
+target = 'lib/#.js'
+deps = ['src/*.tsx', 'src/#.ts']
+template = 'swc'
+[task.template-options.config]
+inlineSourcesContent = false
+'jsc.target' = 'es2019'
