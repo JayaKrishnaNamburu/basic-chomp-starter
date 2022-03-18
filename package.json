@@ -4,6 +4,9 @@
   "devDependencies": {
     "@swc/cli": "^0.1.55",
     "@swc/core": "^1.2.157",
-    "rollup": "^2.70.1"
+    "imagemin-cli": "^7.0.0",
+    "imagemin-mozjpeg": "^10.0.0",
+    "rollup": "^2.70.1",
+    "rollup-plugin-postcss": "^4.0.2"
   }
 }
