@@ -1,10 +1,7 @@
 version = 0.1
 
 extensions = [
-    'chomp@0.1:swc', 
-    './teleportHQ.js',
-    './rollup.js', 
-    './imagemin.js'
+  'https://gist.githubusercontent.com/JayaKrishnaNamburu/4c914a527381d586fb697812c32459d0/raw/teleportHQ.js'
 ]
 
 default-task = 'build'
@@ -14,89 +11,6 @@ auto-install = true
 
 [[task]]
 name = 'build'
-deps = ['build:rollup', 'build:assets', 'build:teleportHQ']
-
-[[task]]
-name = 'clean'
-run = """
-rm -rf dist
-rm -rf lib
-"""
-
-[[task]]
-name = 'build:teleportHQ'
-deps = ['index.html', 'build:rollup']
 template = 'teleportHQ'
 [task.template-options]
 entry = './index.js'
-
-[[task]]
-name = 'build:teleportHQ'
-deps = ['teleport.config.json', 'build:rollup']
-template = 'teleportHQ'
-[task.template-options]
-entry = './index.js'
-
-[[task]]
-name = 'build:rollup'
-deps = ['lib/**/*.js', 'build:tsx', 'build:ts', 'build:jsx', 'build:js','build:css']
-template = 'rollup'
-[task.template-options]
-plugins = ['rollup-plugin-postcss']
-entries = [
-    'lib/index.js'
-]
-
-[[task]]
-name = 'build:assets'
-deps = ["public/playground_assets", "build:rollup"]
-template = 'imagemin'
-[task.template-options]
-plugins = ['mozjpeg', 'optipng']
-entry = 'public/playground_assets'
-
-[[task]]
-name = 'build:css'
-target = 'lib/#.css'
-deps = ['src/#.css']
-run = 'cp $DEP $TARGET'
-
-[[task]]
-name = 'build:js'
-target = 'lib/#.js'
-deps = ['src/#.js']
-template = 'swc'
-[task.template-options.config]
-inlineSourcesContent = false
-'jsc.target' = 'es2019'
-'jsc.parser.jsx' = true
-'jsc.parser.syntax' = 'ecmascript'
-
-[[task]]
-name = 'build:jsx'
-target = 'lib/#.js'
-deps = ['src/#.jsx']
-template = 'swc'
-[task.template-options.config]
-inlineSourcesContent = false
-'jsc.target' = 'es2019'
-'jsc.parser.jsx' = true
-'jsc.parser.syntax' = 'ecmascript'
-
-[[task]]
-name = 'build:ts'
-target = 'lib/#.js'
-deps = ['src/#.ts']
-template = 'swc'
-[task.template-options.config]
-inlineSourcesContent = false
-'jsc.target' = 'es2019'
-
-[[task]]
-name = 'build:tsx'
-target = 'lib/#.js'
-deps = ['src/#.tsx']
-template = 'swc'
-[task.template-options.config]
-inlineSourcesContent = false
-'jsc.target' = 'es2019'
