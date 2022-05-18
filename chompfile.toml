@@ -57,14 +57,14 @@ entry = 'public/playground_assets'
 
 [[task]]
 name = 'build:css'
-target = 'lib/#.css'
-deps = ['src/#.css']
+target = 'lib/##.css'
+deps = ['src/##.css']
 run = 'cp $DEP $TARGET'
 
 [[task]]
 name = 'build:js'
-target = 'lib/#.js'
-deps = ['src/#.js']
+target = 'lib/##.js'
+deps = ['src/##.js']
 template = 'swc'
 [task.template-options.config]
 inlineSourcesContent = false
@@ -74,8 +74,8 @@ inlineSourcesContent = false
 
 [[task]]
 name = 'build:jsx'
-target = 'lib/#.js'
-deps = ['src/#.jsx']
+target = 'lib/##.js'
+deps = ['src/##.jsx']
 template = 'swc'
 [task.template-options.config]
 inlineSourcesContent = false
@@ -85,8 +85,8 @@ inlineSourcesContent = false
 
 [[task]]
 name = 'build:ts'
-target = 'lib/#.js'
-deps = ['src/#.ts']
+target = 'lib/##.js'
+deps = ['src/##.ts']
 template = 'swc'
 [task.template-options.config]
 inlineSourcesContent = false
@@ -94,9 +94,11 @@ inlineSourcesContent = false
 
 [[task]]
 name = 'build:tsx'
-target = 'lib/#.js'
-deps = ['src/#.tsx']
+target = 'lib/##.js'
+deps = ['src/##.tsx']
 template = 'swc'
 [task.template-options.config]
 inlineSourcesContent = false
 'jsc.target' = 'es2019'
+'jsc.parser.syntax' = 'typescript'
+'jsc.parser.tsx' = true

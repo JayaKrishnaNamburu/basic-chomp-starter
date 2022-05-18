@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext, useState } from "react";
 
 interface State {
   title: string;
@@ -13,7 +13,7 @@ const AppStateContext = createContext<Props | null>(null);
 
 export const AppStateProvider: React.FC<Props> = ({ children }) => {
   const [state, setState] = useState<State>({
-    title: "teleport-project-react"
+    title: "teleport-project-react",
   });
 
   return (
@@ -24,9 +24,9 @@ export const AppStateProvider: React.FC<Props> = ({ children }) => {
 };
 
 export const useAppState = () => {
-    const context = useContext(AppStateContext)
-    if (context === undefined) {
-        throw new Error('AppState is missing.')
-    }
-    return context
-}      
+  const context = useContext(AppStateContext);
+  if (context === undefined) {
+    throw new Error("AppState is missing.");
+  }
+  return context;
+};

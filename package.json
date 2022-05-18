@@ -1,17 +1,21 @@
 {
   "name": "teleport-project-react",
   "version": "0.0.0",
+  "scripts": {
+    "build": "chomp build"
+  },
   "devDependencies": {
     "@jspm/generator": "^1.0.0-beta.30",
     "@jspm/plugin-rollup": "github:jspm/rollup-plugin-jspm",
-    "@swc/cli": "^0.1.55",
-    "@swc/core": "^1.2.159",
+    "@swc/cli": "^0.1.57",
+    "@swc/core": "^1.2.186",
+    "chomp": "^0.2.2",
     "imagemin-cli": "^7.0.0",
     "imagemin-mozjpeg": "^10.0.0",
     "imagemin-optipng": "^8.0.0",
     "imagemin-pngquant": "^9.0.2",
     "node-html-parser": "^5.2.0",
-    "rollup": "^2.70.1",
+    "rollup": "^2.73.0",
     "rollup-plugin-postcss": "^4.0.2"
   }
 }
